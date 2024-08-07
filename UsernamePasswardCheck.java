@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class UsernamePasswardCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -8,16 +9,19 @@ public class UsernamePasswardCheck {
         String enteredUsername = sc.nextLine();
         System.out.print("Enter your passward: ");
         String enteredPassward = sc.nextLine();
-        if(enteredUsername.equals(correctUsername)){
-            if(enteredPassward.equals(correctPassward)){
+        if (enteredUsername.equals(correctUsername)) {
+            if (enteredPassward.equals(correctPassward)) { // for wrong password
                 System.out.print("Successfully Login");
-            }
-            else{
+            } else {
                 System.out.print("Incorrect Passward!");
             }
+        } else {
+            if (enteredPassward.equals(correctPassward)) { //for correct username and wrong password
+                System.out.print("Incorrect Username!");
+            } else {
+                System.out.print("Incorrect Username and Password!"); // for both wrong
+            }
         }
-        else{
-            System.out.print("Incorrect Username or Passward!");
-        }
+        sc.close(); // releasing scanner which was ocupied
     }
 }
